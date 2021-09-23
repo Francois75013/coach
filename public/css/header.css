@@ -1,0 +1,163 @@
+/* CSS HEADER  */
+
+header {
+    background: linear-gradient(-90deg, rgba(250, 127, 12, 0.7) 0%, rgba(75, 73, 117, 0.7) 100%), 
+    url(../../images/soleil_levant_bis.jpg) no-repeat;
+    background-size: cover;
+    height: 436px;
+    margin: 15px 0;
+}
+
+.nom {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 100px 0 10px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: #FFFF;
+}
+
+.nom h1 {
+    text-transform: uppercase;
+    font-size: 128px;
+    font-weight: 900;
+    font-style: italic;
+    margin-right: 15px;
+}
+
+.logo {
+    width: 180px;
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+ul {
+    margin: 150px auto 0;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 600px;
+    text-align: center;
+}
+
+li {
+    display: table-cell;
+    position: relative;
+    padding: 15px 0;
+    
+}
+
+ul:nth-child(1) {
+    text-decoration: none;
+}
+
+#menuToggle a {
+    color: #232323;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a:hover::after {
+    width: 90%;
+    left: 0;
+}
+
+a:hover {
+    color: #EB6127 !important;
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    -webkit-touch-callout: none;
+}
+
+/*
+position et mise en place du menu burger
+ */
+
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/*
+transforme les span en croix
+ */
+
+#menuToggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+#menuToggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+Position absolute pour le menu burger
+ */
+
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 20px 50px 39px 50px;
+    padding-top: 125px;
+    background: #FFFF;
+    list-style-type: none;
+    /* pour navigateur safari : */
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.9s cubic-bezier(0.80, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+    padding: 4px 0;
+    font-size: 22px;
+}
+
+#menuToggle input:checked~ul {
+    transform: none;
+}

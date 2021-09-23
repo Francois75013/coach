@@ -1,0 +1,73 @@
+/* CSS FOOTER */
+
+
+footer {
+    height: 250px;
+    padding: 20px 0;
+    background-color: #000;
+    color: #FFFF;
+    text-align: center;
+}
+
+footer img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+footer a {
+    margin-top: 60px;
+    color: #FFFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #FFFF;
+}
+
+.fab {
+    margin-right: 10px;
+    color: #FFFF;
+    font-size: 29px;
+}
+
+.fab:hover {
+    color: #EB6127;
+}
+
+/* contact */
+
+.card_contact{
+    justify-content: center !important;
+    align-items: center !important;
+    border-style: none;
+    flex-direction: row;
+}
+.card-body{
+    border-style: none;
+}
+.card_form{
+    width: 390px;
+    justify-content: center !important;
+    align-items: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input_form{
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.199);
+    width: 350px;
+}
+
+/* connexion */
+
+.container_connexion{
+    width: 390px;
+    justify-content: center !important;
+    align-items: 30px;
+    text-align: center;
+}

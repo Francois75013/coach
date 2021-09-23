@@ -1,0 +1,55 @@
+<header>
+    <nav role="navigation">
+        <div id="menuToggle">
+            <!--checkbox fantôme-->
+            <input type="checkbox" />
+
+            <!-- span pour simuler les barres du menu burger   -->
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+                <a href="https://www.clubatheon.com" target="_blank">
+                    <img class="logo" src="/images/logo_atheon.png" alt="">
+                </a>
+                <a href="{{ path('index') }}">
+                    <li>Home</li>
+                </a>
+                <a href="https://www.clubatheon.com" target="_blank">
+                    <li>Club Athéon</li>
+                </a>
+                <a href="{{ path('contact')}}">
+                    <li>Contact</li>
+                </a>
+            {% if app.user %}
+                <a href="{{ path('page_user')}}">
+                    <li>Mes réservations</li>
+                </a>
+            {% else %}    
+                <a href="{{ path('register')}}">
+                    <li>Inscription</li>
+                </a>
+
+            {% endif %}    
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">
+                    <li>Déconnexion</li>
+                </a>
+            {% else %}
+                <a href="{{ path('login')}}">
+
+                    <li>Connexion </li>
+                </a>
+            {% endif %}
+               
+            </ul>
+    </nav>
+
+    <!-- img de fond -->
+    <div class="nom">
+        <h1>Mon Coach</h1>
+        <p>by club ATHEON</p>
+    </div>
+
+</header>

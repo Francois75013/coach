@@ -1,0 +1,128 @@
+/* CSS MAIN */
+
+h2{
+    text-align: center;
+}
+.container {
+    margin-bottom: 70px !important;
+}
+
+.container_objectif {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.container_objectif p{
+    margin-top: 20px !important;
+}
+
+.card_presa {
+    align-items: center;
+    text-align: center;
+    border-style: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+.card_connexion {
+    align-items: center;
+    text-align: center;
+    border-style: none;
+}
+.card_register {
+    align-items: center;
+    text-align: center;
+    border-style: none;
+}
+
+
+.logo_presa {
+    width: 70px;
+}
+
+.house {
+    width: 80px;
+    top: -14;
+    margin-top: ‒10;
+
+    
+}
+.txt_house{
+    margin-bottom: 20px;
+}
+
+.container_presa {
+    margin: 20px auto;
+}
+
+.container_presa p{
+    margin-top: 20px !important;
+}
+
+.container_coachs {
+    text-align: center;
+}
+
+.nos_coachs {
+    margin: 0 auto;
+}
+
+.card_coachs {
+    margin: 20px 40px;
+    width: 288px;
+    border-style: none;
+}
+
+
+.card_detail {
+    margin: 20px auto;
+    justify-content: center;
+    width: 600px;
+    border-style: none;
+}
+
+.img_detail{
+    width: 250px;
+}
+ul {
+    margin: 150px auto 0;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 600px;
+    text-align: center;
+}
+
+li {
+    display: table-cell;
+    position: relative;
+    padding: 15px 0;
+    
+}
+
+.btn {
+    /*  border: solid rgba(0, 0, 0, 0.116); */
+    border-radius: 20px;
+    width: 48%;
+    color: #EB6127;
+    font-weight: 600;
+}
+
+.btn:hover {
+    width: 90%;
+    background-color: #EB6127;
+    color: #FFFF !important;
+    border-radius: 20px;
+    transition: all 0.6s linear 0s;
+    width: 48%;
+    left: 0;
+    top: 0;
+}
+
+.card_descr{
+    height: 60px;
+}
+
+.form_login , .form_register{
+    align-items: center;
+
+}

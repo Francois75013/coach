@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coachs{% endblock %}
+
+{% block body %}
+    <h1>Coachs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ coach.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ coach.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ coach.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Specialite</th>
+                <td>{{ coach.specialite }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ coach.prix }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ coach.photo }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ coach.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('coachs_index') }}">back to list</a>
+
+    <a href="{{ path('coachs_edit', {'id': coach.id}) }}">edit</a>
+
+    {{ include('coachs/_delete_form.html.twig') }}
+{% endblock %}

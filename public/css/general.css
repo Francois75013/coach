@@ -1,5 +1,7 @@
 /* CSS MAIN */
-
+header, body, footer{
+    overflow-y: hidden;
+}
 h2{
     text-align: center;
 }

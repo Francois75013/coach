@@ -54,6 +54,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $nom;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $credits;
+
     public function __construct()
     {
         $this->nom = new ArrayCollection();
@@ -198,6 +203,18 @@ public function setRoles(array $roles): self
                 $nom->setUserName(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCredits(): ?int
+    {
+        return $this->credits;
+    }
+
+    public function setCredits(?int $credits): self
+    {
+        $this->credits = $credits;
 
         return $this;
     }

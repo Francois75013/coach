@@ -86,5 +86,14 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    /**
+     * @Route("/reservation", name="reservation")
+     */
+    public function resa(): Response
+    {
+        return $this->render('reservation.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 
 }

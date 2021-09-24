@@ -23,14 +23,15 @@
 <section class="container container_rdv">
 {% if app.user %}
     <h2>Bonjour {{ app.user.pseudo }}</h2>
+    <p>Crédit : {{app.user.credits}}</p>
     <div class="card card_rdv">
         <p class="resa">Mes réservations en cours : </p>
         <ul>
-            <li>{# {{resa.date}} #} {{resa.lieu}}</li>
+            <li> {{resa.date}}  {{resa.lieu}}</li>
         </ul>
         <p class="resa_passees">Mes précédentes réservations : </p>
         <ul>
-            <li>{# {{resa.date}} #} {{resa.lieu}}</li>
+            <li> {{resa.date}} {{resa.lieu}}</li>
         </ul>
     </div>
 </section>

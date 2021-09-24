@@ -2,7 +2,7 @@
 
 {% block title %}Mon Coach by club Athéon{% endblock %}
 
-{% block stylesheets %}
+{% block stylesheets %} 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
             <h5 class="card-title">{{coach.prenom}}</h5>
             <p class="card-text">{{coach.prix}}€/heure</p>
             <p class="card-text">{{coach.description}}</p>
-            <a href="" class="btn">Réserver un cours avec {{coach.prenom}}</a>
+            <a href="{{ path('reservation') }}" class="btn">Réserver un cours avec {{coach.prenom}}</a>
         </div>
     </div>
 </section>

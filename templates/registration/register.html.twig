@@ -16,33 +16,37 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-<link href="css/header.css" rel="stylesheet">
-<link  href="css/footer.css" rel="stylesheet">
-<link rel="stylesheet" href="css/general.css">
+<link href="/css/header.css" rel="stylesheet">
+<link  href="/css/footer.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/general.css">
 
 
 {% endblock %}
 <section class="container container_register">
+    <h2>Inscription</h2>
     <div class="card_register">
-        <h2>Inscription</h2>
+        
         {{ form_start(registrationForm) }}
         {{ form_widget(registrationForm._token) }}
         <form class="col-12 col-lg-7 form form_register text-center">
-
+            <div>
             {{ form_widget(registrationForm.email, {
             'attr':{ 'class':'input_form', 'type':'email', 'name':'email', 'placeholder':'Votre adresse email'
         } }) }}
+            </div>
+            <div>
             {{ form_widget(registrationForm.pseudo, {
-            'attr':{ 'class':'input_form', 'type':'text', 'name':'pseudo', 'placeholder':'Votre nom'
+            'attr':{ 'class':'input_form', 'type':'text', 'name':'pseudo', 'placeholder':'Votre prénom'
         } }) }}
+            <div>
             {{ form_widget(registrationForm.plainPassword, {
             'attr':{ 'class':'input_form', 'type':'password', 'name':'mp', 'placeholder':'Choisissez un mot de passe'
         } }) }}
-   
-
-            <input class="btn" type="submit" value="Valider" name="valider">
+            </div>
+            <input class="envoyer btn" type="submit" value="Valider" name="valider">
         </form>
         {{ form_end(registrationForm) }}
+    </div>
 </section>
     
     

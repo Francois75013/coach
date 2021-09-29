@@ -1,7 +1,12 @@
 /* CSS MAIN */
-header, body, footer{
-    overflow-y: hidden;
-}
+
+html, body {
+    overflow: auto !important;
+    }
+body {
+        margin: 0 auto;
+    }
+    
 h2{
     text-align: center;
 }
@@ -26,16 +31,21 @@ h2{
     font-size: 20px;
 }
 .card_connexion {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     border-style: none;
+    justify-content: center;
 }
 .card_register {
+    display: flex;
     align-items: center;
+    flex-direction: column;
     text-align: center;
     border-style: none;
+    justify-content: center;
 }
-
 
 .logo_presa {
     width: 70px;
@@ -78,7 +88,7 @@ h2{
 .card_detail {
     margin: 20px auto;
     justify-content: center;
-    width: 600px;
+    width: 800px;
     border-style: none;
 }
 
@@ -107,6 +117,7 @@ li {
     width: 48%;
     color: #EB6127;
     font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .btn:hover {
@@ -125,6 +136,19 @@ li {
 }
 
 .form_login , .form_register{
+    display: flex;
     align-items: center;
+    justify-content: center;
 
+}
+#calendrier{
+    display: flex;
+    justify-content: center;
+}
+.input_form{
+    margin-bottom: 10px;
+}
+
+.envoyer{
+    width: 86px;
 }

@@ -32,7 +32,7 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * Display & process form to request a password reset.
+     * Formulaire demande nouveau mot de passe.
      */
     #[Route('reset_password/request', name: 'request')]
     public function request(Request $request, MailerInterface $mailer): Response
@@ -53,7 +53,7 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * Confirmation page after a user has requested a password reset.
+     * Page de confirmation après que l'utilisateur demande un nouveau mot de passe.
      */
     #[Route('/check-email', name: 'app_check_email')]
     public function checkEmail(): Response

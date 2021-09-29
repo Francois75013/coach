@@ -22,10 +22,12 @@
     {% for flashError in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-    <h1>Réinitialiser votre mot de passe</h1>
-
+    <h2>Réinitialiser votre mot de passe</h2>
+    <div class="card_register">
+    <div>
     {{ form_start(requestForm) }}
         {{ form_row(requestForm.email) }}
+    </div>
         <div>
             <p>
            Veuillez entrer votre adresse email, nous vous enverons un mail de récupération
@@ -34,4 +36,5 @@
 
         <button class="btn" type="submit">Envoyer l'email de récupération</button>
     {{ form_end(requestForm) }}
+    </div>
 {% endblock %}

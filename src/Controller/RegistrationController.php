@@ -6,7 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
-use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mailer\Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,16 +50,17 @@ class RegistrationController extends AbstractController
  
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, MailerInterface $mailer): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer): Response
     {
 
 
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
@@ -81,12 +82,12 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
         // On crée le message
-        $message = (new \MailerInterface ('Nouveau compte'))
+        $message = (new \Swift_Message ('Nouveau compte'))
         // On attribue l'expéditeur
         ->setFrom('clubatheon@gmail.com')
         // On attribue le destinataire
         ->setTo($user->getEmail())
-        // On crée le texte avec la vue
+        // On crée le texte daans la vue
         ->setBody(
             $this->renderView(
                 'emails/activation.html.twig', ['token' => $user->getActivationToken()]
@@ -100,12 +101,13 @@ class RegistrationController extends AbstractController
     #[Route('/activation/{token}', name: 'activation')]
     public function activation($token, UserRepository $user)
     {
-         // On recherche si un utilisateur avec ce token existe dans la base de données
+         // On recherche si un utilisateur avec ce token existe en bdd
     $user = $user->findOneBy(['activation_token' => $token]);
 
     // Si aucun utilisateur n'est associé à ce token
     if(!$user){
         // On renvoie une erreur 404
+
         throw $this->createNotFoundException('Ce compte utilisateur n\'existe pas');
     }
 
@@ -119,7 +121,7 @@ class RegistrationController extends AbstractController
      $this->addFlash('message', 'Votre compte à été activé avec succès');
 
      // Retour à l'accueil
-     return $this->redirectToRoute('home');
+     return $this->redirectToRoute('/');
     }
 
     

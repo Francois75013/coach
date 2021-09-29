@@ -32,7 +32,11 @@
             <h5 class="card-title">{{coach.prenom}}</h5>
             <p class="card-text">{{coach.prix}}€/heure</p>
             <p class="card-text">{{coach.description}}</p>
+            {% if app.user %}
             <a href="{{ path('reservation') }}" class="btn">Réserver un cours avec {{coach.prenom}}</a>
+            {% else %}
+            <a href="{{ path('login') }}" class="btn">Connexion</a>
+            {% endif %}
         </div>
     </div>
 </section>

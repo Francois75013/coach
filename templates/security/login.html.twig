@@ -27,24 +27,26 @@
                 <h3>Déconnexion</h3>
             </a>
         </ul>
+    </div>    
         {% else %}
         <h2>Se connecter</h2>
-        <form class="col-12 col-lg-7 form form_login text-center form_connect" method="POST">
-            <div>
-                <input class="input_form" type="email" name="email" value="" placeholder="Votre adresse email">
-            </div>
-            <div>
-                <input class="input_form" type="password" name="password" value=""
+        <div class="card_connexion">
+            <form class="col-12 col-lg-7 form form_login text-center form_connect" method="POST">
+                <div>
+                    <input class="input_form" type="email" name="email" value="" placeholder="Votre adresse email">
+                </div>
+                <div>
+                    <input class="input_form" type="password" name="password" value=""
                         placeholder="Votre mot de passe">
-            </div>
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <input class="envoyer btn" type="submit" value="Valider" name="Envoyer">
-        </form>
+                </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <input class="envoyer btn" type="submit" value="Valider" name="Envoyer">
+            </form>
         
+        </div>
         <div>
             <a href="{{ path('request')}}">Mot de passe oublié ?</a>
         </div>
-    </div>
 </section>
         {% endif %}
         

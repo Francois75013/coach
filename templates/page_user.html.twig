@@ -26,13 +26,13 @@
     <p>Crédit : {{app.user.credits}}</p>
     <div class="card card_rdv">
         <p class="resa">Mes réservations en cours : </p>
-        <ul>
-            <li> {{resa.date}}  {{resa.lieu}}</li>
-        </ul>
+     {#    <ul>
+            <li>  {{resa.lieu}}</li>
+        </ul> #}
         <p class="resa_passees">Mes précédentes réservations : </p>
-        <ul>
-            <li> {{resa.date}} {{resa.lieu}}</li>
-        </ul>
+     {#   <ul>
+            <li> {{resa.lieu}}</li>
+        </ul> #}
     </div>
 </section>
 {% else %}

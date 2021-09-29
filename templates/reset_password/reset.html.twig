@@ -20,10 +20,11 @@
 
 
 {% endblock %}
-    <h1>Réinitialiser votre mot de passe</h1>
-
+<h2>Réinitialiser votre mot de passe</h2>
+<div class="card_register">
     {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}
         <button class="btn" type="submit">Valider</button>
     {{ form_end(resetForm) }}
+</div>
 {% endblock %}

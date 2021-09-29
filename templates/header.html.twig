@@ -1,5 +1,5 @@
 <header>
-    <nav role="navigation">
+    <nav id="navnav" role="navigation">
         <div id="menuToggle">
             <!--checkbox fantôme-->
             <input type="checkbox" />
@@ -19,7 +19,7 @@
                 <a href="https://www.clubatheon.com" target="_blank">
                     <li>Club Athéon</li>
                 </a>
-                <a href="{{ path('contact')}}">
+                <a href="{{ path('contact') }}">
                     <li>Contact</li>
                 </a>
             {% if app.user %}

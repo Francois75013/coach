@@ -3,29 +3,30 @@
 namespace App\Controller;
 
 use App\Entity\Reservations;
-use App\Form\ReservationsType;
+use App\Form\ReservationType;
 use App\Repository\ReservationsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/reservations')]
-class ReservationsController extends AbstractController
+#[Route('/reservation')]
+class ReservationController extends AbstractController
 {
-    #[Route('/reservation', name: 'reservations_index', methods: ['GET'])]
+    #[Route('/', name: 'reservation', methods: ['GET'])]
     public function index(ReservationsRepository $reservationsRepository): Response
     {
-        return $this->render('reservations/index.html.twig', [
+        return $this->render('reservation/index.html.twig', [
             'reservations' => $reservationsRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'reservations_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'reservation_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
         $reservation = new Reservations();
-        $form = $this->createForm(ReservationsType::class, $reservation);
+        $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -33,42 +34,42 @@ class ReservationsController extends AbstractController
             $entityManager->persist($reservation);
             $entityManager->flush();
 
-            return $this->redirectToRoute('reservations_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('reservations/new.html.twig', [
+        return $this->renderForm('reservation/new.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'reservations_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'reservation_show', methods: ['GET'])]
     public function show(Reservations $reservation): Response
     {
-        return $this->render('reservations/show.html.twig', [
+        return $this->render('reservation/show.html.twig', [
             'reservation' => $reservation,
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'reservations_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'reservation_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Reservations $reservation): Response
     {
-        $form = $this->createForm(ReservationsType::class, $reservation);
+        $form = $this->createForm(Reservations1Type::class, $reservation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('reservations_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('reservations/edit.html.twig', [
+        return $this->renderForm('reservation/edit.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'reservations_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'reservation_delete', methods: ['POST'])]
     public function delete(Request $request, Reservations $reservation): Response
     {
         if ($this->isCsrfTokenValid('delete'.$reservation->getId(), $request->request->get('_token'))) {
@@ -77,6 +78,8 @@ class ReservationsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('reservations_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
     }
+    
 }
+

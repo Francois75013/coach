@@ -3,12 +3,15 @@
 namespace App\Controller;
 use App\Entity\Coachs;
 use App\Repository\CoachsRepository;
-use App\Entity\Reservations;
-use App\Repository\ReservationsRepository;
+use App\Entity\Reservation;
+use App\Entity\Disponibilite;
+use App\Repository\DisponibiliteRepository;
+use App\Repository\ReservationRepository; 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class HomeController extends AbstractController
 {
@@ -49,12 +52,14 @@ class HomeController extends AbstractController
 
 
     #[Route('/page_user', name: 'page_user')]
-    public function page_user(reservationsRepository $reservationsRepository): Response
+    public function page_user(ReservationRepository $reservationRepository): Response
     {
-        $resa = $this->getDoctrine()->getRepository(Reservations::class)->findAll();
-      
+        $resas = $this->getDoctrine()->getRepository(Reservation::class)->findAll();
+        $id = $this->getDoctrine()->getRepository(Reservation::class)->findOneBy([]);
+
         return $this->render('page_user.html.twig', [
-            'resa' => $resa,
+            'resas' => $resas,
+            'id' => $id,
         ]);
     }
 
@@ -74,14 +79,28 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/reservation', name: 'reservation')]
-    public function resa(): Response
+    #[Route('/detail_coach/{id}/reservation', name: 'reservation')]
+    public function resa(ReservationRepository $reservationRepository, DisponibiliteRepository $disponibiliteRepository): Response
     {
+        $resas = $this->getDoctrine()->getRepository(Reservation::class)->findAll();
+        $dispos = $this->getDoctrine()->getRepository(Disponibilite::class)->findAll();
+        $id = $this->getDoctrine()->getRepository(Disponibilite::class)->findOneBy([]);
+
         return $this->render('reservation.html.twig', [
-            'controller_name' => 'HomeController',
+            'resas' => $resas,
+            'dispos' => $dispos,
+            'id' => $id
         ]);
     }
-
+    #[Route('/detail_coach/{id}/reservation', name: 'reservation')]
+    public function formResa(Request $request, ReservationRepository $reservationRepository, DisponibiliteRepository $disponibiliteRepository)
+    {
+        $form = $this->createForm(ReservationType::class);
+        $form->handleRequest($request);
+        return $this->render('/stripe/checkout.html.twig', [
+        ]);
+    }
+    
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request,\Swift_Mailer $mailer)
     {
@@ -92,7 +111,7 @@ class HomeController extends AbstractController
             $contact = $form->getData();
 
             // On crée le message
-            $message = (new \Swift_Message('Nouveau contact'))
+            $message = (new \Swift_Message('Nouveau message'))
                 // On attribue l'expéditeur
                 ->setFrom($contact['email'])
                 // On attribue le destinataire
@@ -107,7 +126,7 @@ class HomeController extends AbstractController
             ;
             $mailer->send($message);
 
-            $this->addFlash('message', 'Votre message a été transmis, nous vous répondrons dans les meilleurs délais.'); // Permet un message flash de renvoi
+            $this->addFlash('message', 'Votre message a été transmis, nous vous répondrons dans les meilleurs délais.'); //message flash de renvoi
         }
         return $this->render('contact.html.twig',['contactForm' => $form->createView()]);
     }

@@ -57,12 +57,15 @@
             <div class="card-body">
                 <h5 class="card-title">{{coach.prenom}}</h5>
                 <p>{{coach.specialite}}</p>
-                <div class="card_descr">
-                    <p class="card-text">{{coach.description}}</p>
-                </div>
                 <p class="card-text">{{coach.prix}}€/heure</p>
-                <a href="{{ path('detail_coach', {'id': coach.id }) }}" class="btn">Plus d'infos</a>
+                <div class="card_descr">
+                    <p class="card-text">{{coach.description |u.truncate(70, '...')}}</p>
+                </div>
+                
             </div> 
+            <div>
+                <a href="{{ path('detail_coach', {'id': coach.id }) }}" class="btn">Plus d'infos</a>
+            </div>
         </div>
         {% endfor %}    
     </div>

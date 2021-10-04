@@ -16,6 +16,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "fullcalendar": "^5.9.0"
+        "fullcalendar": "^5.9.0",
+        "stripe": "^8.178.0"
     }
 }

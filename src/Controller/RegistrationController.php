@@ -106,7 +106,7 @@ class RegistrationController extends AbstractController
 
     // Si aucun utilisateur n'est associé à ce token
     if(!$user){
-        // On renvoie une erreur 404
+        // On renvoie une erreur
 
         throw $this->createNotFoundException('Ce compte utilisateur n\'existe pas');
     }

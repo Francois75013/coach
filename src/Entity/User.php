@@ -49,19 +49,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $activation_token;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Reservations::class, mappedBy="User_name")
-     */
-    private $nom;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $credits;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="user")
+     */
+    private $reservations;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $telephone;
+
     public function __construct()
     {
         $this->nom = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,35 +184,9 @@ public function setRoles(array $roles): self
         return $this;
     }
 
-    /**
-     * @return Collection|Reservations[]
-     */
-    public function getNom(): Collection
-    {
-        return $this->nom;
-    }
+    
 
-    public function addNom(Reservations $nom): self
-    {
-        if (!$this->nom->contains($nom)) {
-            $this->nom[] = $nom;
-            $nom->setUserName($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNom(Reservations $nom): self
-    {
-        if ($this->nom->removeElement($nom)) {
-            // set the owning side to null (unless already changed)
-            if ($nom->getUserName() === $this) {
-                $nom->setUserName(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
     public function getCredits(): ?int
     {
@@ -223,6 +204,48 @@ public function setRoles(array $roles): self
         if (!in_array($roles, $this->roles)) {
             $this->roles[] = $roles;
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getUser() === $this) {
+                $reservation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?string $telephone): self
+    {
+        $this->telephone = $telephone;
 
         return $this;
     }

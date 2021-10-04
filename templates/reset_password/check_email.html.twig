@@ -20,12 +20,8 @@
 
 
 {% endblock %}
-
-
-    <p>
-    Si votre compte existe, un email contenant un lien de récupération vous à été envoyé.
+    <p>Si votre compte existe, un email contenant un lien de récupération vous à été envoyé.
     Ce lien expire dans 
-        {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
+        {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
     <p>Si vous n'avez pas reçu d'email, veuillez cliquer<a href="{{ path('request') }}">ici</a>.</p>
 {% endblock %}

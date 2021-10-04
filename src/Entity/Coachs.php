@@ -49,10 +49,25 @@ class Coachs
      */
     private $description;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity=Reservations::class, inversedBy="coach_id")
+     * @ORM\OneToMany(targetEntity=Disponibilite::class, mappedBy="coach")
+     */
+    private $disponibilites;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="coach")
      */
     private $reservations;
+
+    
+
+    public function __construct()
+    {
+        $this->debut = new ArrayCollection();
+        $this->disponibilites = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -131,22 +146,73 @@ class Coachs
 
         return $this;
     }
-    public function __toString()
+  /*   public function __toString()
     {
         return $this->nom +" "+$this->prenom;
+    } */
+
+
+    /**
+     * @return Collection|Disponibilite[]
+     */
+    public function getDisponibilites(): Collection
+    {
+        return $this->disponibilites;
     }
 
-    public function getReservations(): ?Reservations
+    public function addDisponibilite(Disponibilite $disponibilite): self
+    {
+        if (!$this->disponibilites->contains($disponibilite)) {
+            $this->disponibilites[] = $disponibilite;
+            $disponibilite->setCoach($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDisponibilite(Disponibilite $disponibilite): self
+    {
+        if ($this->disponibilites->removeElement($disponibilite)) {
+            // set the owning side to null (unless already changed)
+            if ($disponibilite->getCoach() === $this) {
+                $disponibilite->setCoach(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
     {
         return $this->reservations;
     }
 
-    public function setReservations(?Reservations $reservations): self
+    public function addReservation(Reservation $reservation): self
     {
-        $this->reservations = $reservations;
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setCoach($this);
+        }
 
         return $this;
     }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getCoach() === $this) {
+                $reservation->setCoach(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 
    
 }

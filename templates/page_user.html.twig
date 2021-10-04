@@ -14,24 +14,25 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-<link href="css/header.css" rel="stylesheet">
-<link  href="css/footer.css" rel="stylesheet">
-<link rel="stylesheet" href="css/general.css">
+<link href="/css/header.css" rel="stylesheet">
+<link  href="/css/footer.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/general.css">
 
 
 {% endblock %}
 <section class="container container_rdv">
 {% if app.user %}
     <h2>Bonjour {{ app.user.pseudo }}</h2>
-    <p>Crédit : {{app.user.credits}}</p>
     <div class="card card_rdv">
-        <p class="resa">Mes réservations en cours : </p>
-     {#    <ul>
-            <li>  {{resa.lieu}}</li>
-        </ul> #}
-        <p class="resa_passees">Mes précédentes réservations : </p>
+        <strong><p class="resa">Mes réservations en cours :</p></strong>
+{% for resa in resas %}
+         <ul>
+            <li>{{resa.lieu}}</li>
+        </ul>
+{% endfor %}
+        <strong><p class="resa_passees">Mes précédentes réservations : </p></strong>
      {#   <ul>
-            <li> {{resa.lieu}}</li>
+            <li>{{resa.date}} {{resa.lieu}}</li>
         </ul> #}
     </div>
 </section>

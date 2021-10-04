@@ -2,18 +2,18 @@
 
 namespace App\Form;
 
-use App\Entity\Reservations;
+use App\Entity\Disponibilite;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ReservationsType extends AbstractType
+class DisponibiliteType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
-            ->add('lieu')
+            ->add('debut')
+            ->add('fin')
             ->add('coach')
         ;
     }
@@ -21,7 +21,7 @@ class ReservationsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Reservations::class,
+            'data_class' => Disponibilite::class,
         ]);
     }
 }

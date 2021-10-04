@@ -38,6 +38,9 @@
             {{ form_widget(registrationForm.pseudo, {
             'attr':{ 'class':'input_form', 'type':'text', 'name':'pseudo', 'placeholder':'Votre prénom'
         } }) }}
+            {{ form_widget(registrationForm.telephone, {
+            'attr':{ 'class':'input_form', 'type':'text', 'name':'telephone', 'placeholder':'Votre numéro de téléphone'
+        } }) }}
             <div>
             {{ form_widget(registrationForm.plainPassword, {
             'attr':{ 'class':'input_form', 'type':'password', 'name':'mp', 'placeholder':'Choisissez un mot de passe'

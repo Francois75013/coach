@@ -113,7 +113,6 @@ li {
 
 .btn {
     /*  border: solid rgba(0, 0, 0, 0.116); */
-    border-radius: 20px;
     width: 48%;
     color: #EB6127;
     font-weight: 600;
@@ -124,18 +123,14 @@ li {
     width: 90%;
     background-color: #EB6127;
     color: #FFFF !important;
-    border-radius: 20px;
     transition: all 0.6s linear 0s;
     width: 48%;
     left: 0;
     top: 0;
 }
 
-.card_descr{
-    height: 60px;
-}
 
-.form_login , .form_register{
+.form_login , .form_register, .form_select{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,5 +145,11 @@ li {
 }
 
 .envoyer{
-    width: 86px;
+    
+    border: solid #EB6127;
+
+}
+.select{
+    width: 35%;
+    align-items: center;
 }

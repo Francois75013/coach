@@ -140,15 +140,15 @@ li {
     display: flex;
     justify-content: center;
 }
+
 .input_form{
     margin-bottom: 10px;
 }
 
 .envoyer{
-    
     border: solid #EB6127;
-
 }
+
 .select{
     width: 35%;
     align-items: center;

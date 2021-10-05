@@ -3,13 +3,17 @@
 namespace App\Entity;
 
 use App\Repository\ReservationRepository;
+use App\Repository\DisponibiliteRepository;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @ORM\Entity(repositoryClass=ReservationRepository::class)
  */
 class Reservation
-{
+{ 
+    const DEVISE = 'eur' ;
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -242,4 +246,6 @@ class Reservation
 
         return $this;
     }
+
+    
 }

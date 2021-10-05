@@ -39,6 +39,8 @@ class Coachs
      */
     private $prix;
 
+   
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */

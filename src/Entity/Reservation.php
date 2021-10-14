@@ -86,6 +86,11 @@ class Reservation
      */
     private $date_paiement;
 
+    /**
+     * @ORM\OneToOne(targetEntity=ResaPreced::class, mappedBy="resa_preced", cascade={"persist", "remove"})
+     */
+    private $resaPreced;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -243,6 +248,28 @@ class Reservation
     public function setDatePaiement(?\DateTimeInterface $date_paiement): self
     {
         $this->date_paiement = $date_paiement;
+
+        return $this;
+    }
+
+    public function getResaPreced(): ?ResaPreced
+    {
+        return $this->resaPreced;
+    }
+
+    public function setResaPreced(?ResaPreced $resaPreced): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($resaPreced === null && $this->resaPreced !== null) {
+            $this->resaPreced->setResaPreced(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($resaPreced !== null && $resaPreced->getResaPreced() !== $this) {
+            $resaPreced->setResaPreced($this);
+        }
+
+        $this->resaPreced = $resaPreced;
 
         return $this;
     }

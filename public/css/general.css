@@ -1,17 +1,50 @@
-/* CSS MAIN */
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
 html, body {
     overflow: auto !important;
-    }
-body {
-        margin: 0 auto;
-    }
-    
-h2{
-    text-align: center;
 }
+
+body {
+    margin: 0 auto;
+}
+
+h2 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+P {
+    font-weight: 600;
+}
+
+/*********************
+CSS GENERAL
+********************/
+
+/* CSS MAIN */
+
 .container {
     margin-bottom: 70px !important;
+}
+
+.container_detail {
+    margin-top: 30px;
+}
+.container_detail h2{
+    font-size: 35px;
+    text-transform: uppercase;
+
+  
+}
+
+
+.container_detail h2, p {
+    text-align: center;
+    
 }
 
 .container_objectif {
@@ -19,7 +52,7 @@ h2{
     text-align: center;
 }
 
-.container_objectif p{
+.container_objectif p {
     margin-top: 20px !important;
 }
 
@@ -27,51 +60,60 @@ h2{
     align-items: center;
     text-align: center;
     border-style: none;
-    font-weight: 600;
-    font-size: 20px;
+    background-color: #FFF;
 }
-.card_connexion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-style: none;
-    justify-content: center;
+
+.logo_header {
+    width: 100px;
 }
-.card_register {
+
+.logoHeader {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    border-style: none;
     justify-content: center;
+    align-items: center;
 }
 
 .logo_presa {
-    width: 70px;
+    width: 100px;
+    background-color: #FFF;
 }
 
 .house {
     width: 80px;
-    top: -14;
-    margin-top: ‒10;
-
-    
-}
-.txt_house{
-    margin-bottom: 20px;
 }
 
 .container_presa {
     margin: 20px auto;
+    background-color: #FFF !important;
+    color: #000;
 }
 
-.container_presa p{
+.container_presa p {
     margin-top: 20px !important;
+}
+
+.description {
+    font-weight: 400;
+    margin-bottom: 100px !important;
 }
 
 .container_coachs {
     text-align: center;
+    margin: 0 auto;
+}
+
+.card-title {
+    text-align: left;
+    margin: 0 auto;
+    line-height: 0.3em;
+    font-size: 10pt;
+    font-weight: 350;
+}
+
+.name_title {
+    text-align: left;
+    margin: 0 auto;
+    font-size: 15pt;
 }
 
 .nos_coachs {
@@ -80,76 +122,133 @@ h2{
 
 .card_coachs {
     margin: 20px 40px;
-    width: 288px;
+    width: 250px;
     border-style: none;
+}
+
+.align_img {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-body-home {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.detail_presa {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.container_picto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    height: 220px;
+    width: 600px;
+    text-align: center;
+    color: #fff;
+}
+
+.detail_picto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+   
+  
+}
+
+.container_picto h3 {
+    text-transform: uppercase;
+}
+
+.skills_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.skills_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.bars{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.skill1, .skill2 {
+    height: 15px;
+    width: 70px;
+    background-color: #000;
+}
+
+.skill1-1 {
+    height: 15px;
+    width: 45px;
+    background-color: #EB6127;
+}
+
+.skill2-2 {
+    height: 15px;
+    width: 65px;
+    background-color: #EB6127;
 }
 
 
 .card_detail {
+    flex-direction: row-reverse;
     margin: 20px auto;
     justify-content: center;
-    width: 800px;
+    width: 600px;
     border-style: none;
 }
 
-.img_detail{
-    width: 250px;
+.card_detail_unit {
+    display: flex;
+    flex-direction: column;
 }
-ul {
-    margin: 150px auto 0;
-    padding: 0;
-    list-style: none;
-    display: table;
-    width: 600px;
+
+.card-body-detail {
     text-align: center;
 }
 
-li {
-    display: table-cell;
-    position: relative;
-    padding: 15px 0;
-    
+.card-body-detail h5 {
+    margin: 15px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.img_detail {
+    width: 250px;
+}
+
+.picto_detail {
+    width: 80px;
+    margin-left: 25px;
 }
 
 .btn {
     /*  border: solid rgba(0, 0, 0, 0.116); */
+    border-radius: 20px;
     width: 48%;
     color: #EB6127;
     font-weight: 600;
-    margin-bottom: 15px;
 }
 
 .btn:hover {
-    width: 90%;
+    width: 100%;
     background-color: #EB6127;
     color: #FFFF !important;
+    border-radius: 20px;
     transition: all 0.6s linear 0s;
     width: 48%;
     left: 0;
     top: 0;
-}
-
-
-.form_login , .form_register, .form_select{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-#calendrier{
-    display: flex;
-    justify-content: center;
-}
-
-.input_form{
-    margin-bottom: 10px;
-}
-
-.envoyer{
-    border: solid #EB6127;
-}
-
-.select{
-    width: 35%;
-    align-items: center;
 }

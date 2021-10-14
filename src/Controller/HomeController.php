@@ -6,7 +6,8 @@ use App\Repository\CoachsRepository;
 use App\Entity\Reservation;
 use App\Entity\Disponibilite;
 use App\Repository\DisponibiliteRepository;
-use App\Repository\ReservationRepository; 
+use App\Repository\ReservationRepository;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -78,26 +79,63 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+ /*    #[Route('/detail_coach/{id}/paiement', name: 'paiement')]
+    public function paiement($id): Response
+    {   
+        $repo = $this->getDoctrine()->getRepository(Coachs::class);
+        $coach = $repo->find($id);
+        $coachs = $repo->find($id);
+        
+
+        return $this->render('paiement.html.twig', [
+            'coach' => $coach,
+            'coachs' => $coachs
+            
+        ]);
+    } */
 
     #[Route('/detail_coach/{id}/reservation', name: 'reservation')]
-    public function resa(ReservationRepository $reservationRepository, DisponibiliteRepository $disponibiliteRepository): Response
+    public function resa( ReservationRepository $reservationRepository, DisponibiliteRepository $disponibiliteRepository): Response
     {
         $resas = $this->getDoctrine()->getRepository(Reservation::class)->findAll();
         $dispos = $this->getDoctrine()->getRepository(Disponibilite::class)->findAll();
+        $repo = $this->getDoctrine()->getRepository(Disponibilite::class);
+        $dispo = $repo->findOneBy([]);
+        $id = $this->getDoctrine()->getRepository(Disponibilite::class)->findOneBy([]);
+        $repo = $this->getDoctrine()->getRepository(Coachs::class);
+        $coach = $repo->find($id);
+        return $this->render('reservation.html.twig', [
+            
+            'dispos' => $dispos,
+            'dispo' => $dispo,
+            'coach' => $coach
+         
+        ]);
+        
+    }
+    /* #[Route('/detail_coach/{id}/reservation', name: 'reservation')]
+    public function resa( ReservationRepository $reservationRepository, DisponibiliteRepository $disponibiliteRepository): Response
+    {
+        $resas = $this->getDoctrine()->getRepository(Reservation::class)->findAll();
+        $dispos = $this->getDoctrine()->getRepository(Disponibilite::class)->findAll();
+        $repo = $this->getDoctrine()->getRepository(Disponibilite::class);
+        $dispo = $repo->findOneBy([]);
         $id = $this->getDoctrine()->getRepository(Disponibilite::class)->findOneBy([]);
 
         return $this->render('reservation.html.twig', [
-            'resas' => $resas,
+            
             'dispos' => $dispos,
-            'id' => $id
+            'dispo' =>$dispo
+         
         ]);
-    }
+
+    } */
     #[Route('/detail_coach/{id}/reservation', name: 'reservation')]
     public function formResa(Request $request, ReservationRepository $reservationRepository, DisponibiliteRepository $disponibiliteRepository)
     {
         $form = $this->createForm(ReservationType::class);
         $form->handleRequest($request);
-        return $this->render('/stripe/checkout.html.twig', [
+        return $this->render('StripeService.php', [
         ]);
     }
     

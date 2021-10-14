@@ -24,21 +24,29 @@
 {% endblock %}
 {% block body %}
 <section class="container container_detail">
-    <h2>Réservation</h2>
-     
+    
+    <h2>Paiement</h2>
+    <div class="montant">
+    <h5>Montant à payer: {{coach.prix}} €</h5>
+    <p class="prix card-text"></p>
+    </div>
     <div class="card card_detail">
-        <img class="img_detail" src="/images/avatar.png" class="card-img-top" alt="">
-        <div class="card-body">
-            <h3 class="card-title">{{coach.prenom}}</h3>
-            <h5 class="card-title">{{coach.specialite}}</h5>
-            <p class="card-text">{{coach.prix}}€/heure</p>
-            <p class="card-text">{{coach.description}}</p>
-            {% if app.user %}
-            <a href="{{ path('reservation',{'id': coach.id }) }}" class="btn">Réserver un cours avec {{coach.prenom}}</a>
-            {% else %}
-            <a href="{{ path('login') }}" class="btn">Connexion</a>
-            {% endif %}
-        </div>
+        <form class="col-12 col-lg-7 form form_login text-center form_connect" method="POST">
+                <div>
+                    <input class="input_form" type="text" name="email" value="" placeholder="Votre nom">
+                </div>
+                <div>
+                    <input class="input_form" type="text" name="email" value="" placeholder="Numéro de carte">
+                </div>
+                <div>
+                    <input class="input_form" type="text" name="email" value="" placeholder="CCV">
+                </div>
+                <div>
+                    <input class="input_form" type="text" name="password" value=""
+                        placeholder="Date d'expiration">
+                </div>
+                    <input class="envoyer btn" type="submit" value="Valider" name="Envoyer">
+        </form>
     </div>
 </section>
 {% endblock %}

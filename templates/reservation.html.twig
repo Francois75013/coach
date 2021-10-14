@@ -28,16 +28,17 @@
     <h2>Choissez un créneau pour votre cours</h2>
     <div id="card card_select" class="form_select">
 
-        <form class="col-12 col-lg-7 form text-center select" method="POST" action="{path('checkout')}">
+        <form class="col-12 col-lg-7 form text-center select" method="POST" action="StripeService.php">
      
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="resa" action="">
-{% for dispo in dispos %}   
-                        <option>{{dispo.debut|format_datetime()}} - {{dispo.lieu}}</option> 
+{% for dispo in dispos %}    
+                        <option>{{dispo.debut|format_datetime()}} -{{dispo.lieu}}</option> 
 {% endfor %}                
                 </select> 
+                {# <a href="{{ path('paiement', {'id': coach.id }) }}" class="btn envoyer">Valider</a> #}
                 <input type="submit" class="btn envoyer" value="Valider">
         </form>
-
+ 
     </div>
 </section>
 

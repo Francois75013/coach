@@ -37,4 +37,6 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_SUPER_ADMIN }
         - { path: ^/reservation, roles: ROLE_USER }
+        - { path: ^/disponibilite, roles: ROLE_ADMIN }
+
     

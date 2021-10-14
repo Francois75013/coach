@@ -1,8 +1,11 @@
 /* CSS FOOTER */
 
-
 footer {
-    height: 230px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 350px;
     padding: 20px 0;
     background-color: #000;
     color: #FFFF;
@@ -10,8 +13,28 @@ footer {
 }
 
 footer img {
-    width: 150px;
+    width: 200px;
     margin-bottom: 20px;
+}
+
+.section_footer {
+    display: flex;
+    justify-content: space-between;
+}
+.fa-map-marker-alt{
+    font-size: 29px;
+    margin-bottom: 20px;
+}
+
+.loc{
+
+    margin-left: 200px;
+}
+
+.adress_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 footer a {
@@ -25,39 +48,52 @@ footer a:hover {
 }
 
 .fab {
-    margin-right: 10px;
+    margin: 10px 10px;
     color: #FFFF;
     font-size: 29px;
 }
+
+.pol{
+    text-align: center;
+}
+
 
 .fab:hover {
     color: #EB6127;
 }
 
+.nav_footer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
 /* contact */
 
-.card_contact{
+.card_contact {
     justify-content: center !important;
     align-items: center !important;
     border-style: none;
     flex-direction: row;
 }
-.card-body{
+
+.card-body {
     border-style: none;
 }
-.card_form{
+
+.card_form {
     width: 390px;
     justify-content: center !important;
     align-items: 30px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.input_form{
+.input_form {
     border-radius: 10px;
     border-color: rgba(0, 0, 0, 0.199);
     width: 350px;
@@ -65,9 +101,14 @@ form{
 
 /* connexion */
 
-.container_connexion{
+.container_connexion {
     width: 390px;
     justify-content: center !important;
-    align-items: 30px;
+    align-items: center;
     text-align: center;
+}
+
+.form_connect {
+    display: flex;
+    align-items: center;
 }

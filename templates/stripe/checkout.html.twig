@@ -1,15 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mon coach by Athéon{% endblock %}
-{% block body %}
+
 {% block stylesheets %}
 <head>
     <title>Mon Coach by club Athéon</title>
     <link rel="stylesheet" href="/css/general.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-    <script src="https://js.stripe.com/v3/"></script>
   </head>
 {% endblock %}
+{% block body %}
 <body>
 <!-- Display a payment form -->
 <form id="payment-form">
@@ -24,5 +23,14 @@
     <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
   </p>
 </form>
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
 </body>
 {% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+const Stripe = require('stripe');
+const stripe = Stripe('sk_test_51JgqjCD4zek1mP68nVihLZpJgZiwkZF4IeNPCeiBwhZNTim3Xs88fPL39ceTauDQ3WU880MwxAaiIxkTlR0LVVqT00sq75pyeD');
+</script>
+{% endblock %}
+

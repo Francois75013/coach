@@ -79,7 +79,7 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
- /*    #[Route('/detail_coach/{id}/paiement', name: 'paiement')]
+     #[Route('/detail_coach/{id}/paiement', name: 'paiement')]
     public function paiement($id): Response
     {   
         $repo = $this->getDoctrine()->getRepository(Coachs::class);
@@ -92,7 +92,7 @@ class HomeController extends AbstractController
             'coachs' => $coachs
             
         ]);
-    } */
+    } 
 
     #[Route('/detail_coach/{id}/reservation', name: 'reservation')]
     public function resa( ReservationRepository $reservationRepository, DisponibiliteRepository $disponibiliteRepository): Response

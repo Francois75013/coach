@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon coach by Athéon{% endblock %}
+{% block body %}
+{% block stylesheets %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500;700&display=swap"
+ rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&family=Oswald:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,900&display=swap"
+        rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+<link href="css/header.css" rel="stylesheet">
+<link  href="css/footer.css" rel="stylesheet">
+<link rel="stylesheet" href="css/general.css">
+
+
+{% endblock %}
+
+
+<section class="container container_objectif">
+    <h2>Notre objectif, votre progression</h2>
+    <p>Nous vous accompagnons dans l'élaboration de votre programme sportif afin qu'il soit adapté à vos
+    objectifs.</p>
+</section>
+<section class="container container_presa">
+    <div class="row presa">
+        <div class="card card_presa col-12 col-lg-4">
+            <img class="logo_presa" src="images/power.png" alt="">
+            <p> Des professionnels à votre écoute</p>
+
+        </div>
+        <div class="card card_presa col-12 col-lg-4"> 
+            <img class="logo_presa" src="images/coeur.png" alt="">
+            <p> Des cours personnalisés qui s'adaptent à votre rythme</p>
+        </div>
+        <div class="card card_presa col-12 col-lg-4">
+            <img class="logo_presa house" src="images/maison.jpg" alt="">
+            <p class="txt_house">En salle ou à domicile</p>
+        </div>
+    </div>
+</section>
+<section class="container container_coachs">
+    <h2>Les Coachs</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis odio doloremque, repellat debitis
+    possimus hic laboriosam facere inventore vitae sed ex quia id libero velit, deleniti mollitia eligendi
+    modi illo?</p>
+    <div class="row nos_coachs">
+        
+        {% for coach in coachs %}  
+        <div class="card card_coachs col-12 col-lg-4">
+            <img src="images/avatar.png" class="card-img-top" alt="...">{# {{coachs.photo}} #}
+            <div class="card-body">
+                <h5 class="card-title">{{coach.prenom}}</h5>
+                <p>{{coach.specialite}}</p>
+                <p class="card-text">{{coach.prix}}€/heure</p>
+                <div class="card_descr">
+                    <p class="card-text">{{coach.description |u.truncate(70, '...')}}</p>
+                </div>
+                
+            </div> 
+            <div>
+                <a href="{{ path('detail_coach', {'id': coach.id }) }}" class="btn">Plus d'infos</a>
+            </div>
+        </div>
+        {% endfor %}    
+    </div>
+</section>
+{% endblock %}

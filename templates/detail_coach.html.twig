@@ -1,44 +1,71 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Mon Coach by club Athéon{% endblock %}
-
-{% block stylesheets %} 
+{% extends 'base.html.twig' %} {% block title %}Mon Coach by club Athéon {% endblock %} {% block stylesheets %}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500;700&display=swap"
- rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&family=Oswald:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,900&display=swap"
-        rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&family=Oswald:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
 <link href="/css/header.css" rel="stylesheet">
-<link  href="/css/footer.css" rel="stylesheet">
-<link  href="/css/general.css" rel="stylesheet">
-
-
-
-{% endblock %}
-{% block body %}
+<link href="/css/footer.css" rel="stylesheet">
+<link href="/css/general.css" rel="stylesheet"> {% endblock %} {% block body %}
 <section class="container container_detail">
-    <h2>Réservation</h2>
-     
+    <div class="nom_coach">
+        <h2>Je suis {{coach.prenom}}
+        </h2>
+        <p>Atteindre vos objectifs est ma passion</p>
+    </div>
     <div class="card card_detail">
-        <img class="img_detail" src="/images/avatar.png" class="card-img-top" alt="">
-        <div class="card-body">
-            <h3 class="card-title">{{coach.prenom}}</h3>
-            <h5 class="card-title">{{coach.specialite}}</h5>
-            <p class="card-text">{{coach.prix}}€/heure</p>
-            <p class="card-text">{{coach.description}}</p>
-            {% if app.user %}
-            <a href="{{ path('reservation',{'id': coach.id }) }}" class="btn">Réserver un cours avec {{coach.prenom}}</a>
-            {% else %}
-            <a href="{{ path('login') }}" class="btn">Connexion</a>
-            {% endif %}
+        <div class="card_detail_unit">
+            <img class="img_detail" src="../img/img_coach_exemple.jpg" class="card-img-top" alt="">
+            <div class="card-body-detail">
+                <h5 class="card-title">{{coach.specialite}}</h5>
+                <p class="card-text">{{coach.prix}}€/H</p>
+
+            </div>
+            <div class="skils_bar">
+                <div class="skills_title">
+                    <p>Cardio</p>
+                    <p>Boxe</p>
+                </div>
+                <div class="bars">
+                    <div class="skill1">
+                        <div class="skill1-1"></div>
+                    </div>
+                    <div class="skill2">
+                        <div class="skill2-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail_presa">
+            <div>
+                <p class="card-text description">{{coach.description}}
+                </p>
+            </div>
+            <div class="container_picto">
+                <h3>Spécialités</h3>
+                <div class="detail_picto">
+                    <a class="link_picto" href="#">
+                        <div>
+                            <img src="../img/musculation.svg" alt="" class="picto_detail">
+                            <p>Lorem
+                            </p>
+                    </a>
+
+                    </div>
+                    <div>
+                        <a class="link_picto" href="{{ path('reservation', {'id': coach.id}) }}"><img src="../img/boxe.svg" alt="" class="picto_detail">
+                            <p>Lorem
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <hr>
 </section>
 {% endblock %}

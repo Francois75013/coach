@@ -1,70 +1,53 @@
 <footer>
 
-    <a href="https://www.clubatheon.com"><img src="/images/logo_atheon.png" alt=""></a>
-    <div>
-        <a href="{{ path('pol_confidential')}}">Politique de confidentialité</a>
-        <p class="copy text-center">2021 &copy Mon Coach - by club Athéon</p>
-    </div>
-    <div>
-    
-    {% if app.user is same as 'ROLE_USER'%}
-    <a></a>
-    {% else  %}
-    <a href="{{ path('disponibilite')}}">Mes disponibilités</a>
-    {% endif %}
-    </div>
-    <div class="rs">
-        <a href="https://www.facebook.com/clubatheon/"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/clubatheon/?hl=fr"><i class="fab fa-instagram"></i></a>
-    </div>
+	<div class="rs">
+		<div>
+			<a href="#"><img src="../img/logo_atheon.png" alt=""></a>
+		</div>
+		<a href="#">
+			<i class="fab fa-facebook"></i>
+		</a>
+		<a href="#">
+			<i class="fab fa-instagram"></i>
+		</a>
+
+	</div>
+
+
+	<div class="nav_footer">
+		<a href="index.html">
+			Home
+		</a>
+		<a href="https://www.clubatheon.com">
+			Club Athéon
+		</a>
+		<a href="#">
+			Contact
+		</a>
+		<a href="#">
+			Connexion
+		</a>
+	</div>
+	<div class="loc">
+		<i class="fas fa-map-marker-alt"></i>
+		<p class="adress_footer">
+			Club Athéon
+		</p>
+		<p class="adress_footer">
+			26 avenue du Général Sarrail
+		</p>
+		<p class="adress_footer">
+			75016 Paris
+		</p>
+
+	</div>
+
 
 </footer>
+<div class="pol">
+	<a href="#">Politique de confidentialité</a>
+	<p class="copy text-center">2021 &copy Mon Coach - by Athéon</p>
+</div>
 
-    <footer>
-
-        <div class="rs">
-            <div>
-                <a href="#"><img src="../img/logo_atheon.png" alt=""></a>
-            </div>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-
-        </div>
-        <section class="section_footer">
-            <div class="adress_nav">
-                <div class="nav_footer">
-                    <a href="index.html">
-                        Home
-                    </a>
-                    <a href="https://www.clubatheon.com">
-                        Club Athéon
-                    </a>
-                    <a href="#">
-                        Contact
-                    </a>
-                    <a href="#">
-                        Connexion
-                    </a>
-                </div>
-                <div class="loc">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p class="adress_footer">
-                        Club Athéon
-                    </p>
-                    <p class="adress_footer">
-                        26 avenue du Général Sarrail
-                    </p>
-                    <p class="adress_footer">
-                        75016
-                    </p>
-                    <p class="adress_footer">
-                        Paris
-                    </p>
-                </div>
-            </div>
-        </section>
-    </footer>
-    <div class="pol">
-        <a href="#">Politique de confidentialité</a>
-        <p class="copy text-center">2021 &copy Mon Coach - by Athéon</p>
-    </div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script></body></html>

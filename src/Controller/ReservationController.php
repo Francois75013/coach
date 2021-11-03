@@ -19,21 +19,21 @@ class ReservationController extends AbstractController
     #[Route('/checkout', name: 'checkout')]
     public function checkout(): Response
     {
-        return $this->render('/strip/checkout.html.twig', [
+        return $this->render('detail_coach/{id}/stripe/checkout.html.twig', [
             'controller_name' => 'ReservationController',
         ]);
     }
-    #[Route('/success', name: 'successt')]
+    #[Route('/success', name: 'success')]
     public function success(): Response
     {
-        return $this->render('/strip/checkout.html.twig', [
+        return $this->render('/stripe/checkout.html.twig', [
             'controller_name' => 'ReservationController',
         ]);
     }
     #[Route('/cancel', name: 'cancel')]
     public function cancel(): Response
     {
-        return $this->render('/strip/checkout.html.twig', [
+        return $this->render('/stripe/checkout.html.twig', [
             'controller_name' => 'ReservationController',
         ]);
     }

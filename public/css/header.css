@@ -1,17 +1,28 @@
 /* CSS HEADER  */
 
 header {
-    background: linear-gradient(-90deg, rgba(250, 127, 12, 0.7) 0%, rgba(75, 73, 117, 0.7) 100%), url(../img/img_header.jpg) no-repeat;
+    background: linear-gradient(-90deg, rgba(250, 127, 12, 0.7) 0%, rgba(75, 73, 117, 0.7) 100%), url(../img/bannière_studio.png) fixed no-repeat;
     background-size: cover;
     height: 700px;
-    margin: 15px 0;
+    margin: 5px 0 0 0 !important;
+    text-align: center;
+}
+
+.logo_header {
+    width: 100px;
+}
+
+.logoHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nom {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    margin: 200px 0 10px 70px ;
+    text-align: left;
+    margin: 200px 0 10px 70px;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     color: #FFFF;
@@ -20,10 +31,10 @@ header {
 
 .nom h1 {
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: 49px;
     font-weight: 900;
     font-style: italic;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .logo {
@@ -93,9 +104,10 @@ a:hover {
     -webkit-touch-callout: none;
 }
 
+
 /*
 position et mise en place du menu burger
- */
+*/
 
 #menuToggle span {
     display: block;
@@ -118,9 +130,10 @@ position et mise en place du menu burger
     transform-origin: 0% 100%;
 }
 
+
 /*
 transforme les span en croix
- */
+*/
 
 #menuToggle input:checked~span {
     opacity: 1;
@@ -137,9 +150,10 @@ transforme les span en croix
     transform: rotate(-45deg) translate(0, -1px);
 }
 
+
 /*
 Position absolute pour le menu burger
- */
+*/
 
 #menu {
     position: absolute;
@@ -147,7 +161,7 @@ Position absolute pour le menu burger
     margin: -100px 0 0 -50px;
     padding: 20px 50px 39px 50px;
     padding-top: 125px;
-    background-color: gray;
+    background: #FFFF;
     list-style-type: none;
     /* pour navigateur safari : */
     -webkit-font-smoothing: antialiased;
@@ -163,4 +177,51 @@ Position absolute pour le menu burger
 
 #menuToggle input:checked~ul {
     transform: none;
+}
+
+.ss_titre {
+    text-align: left;
+}
+
+.div_fleche {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fleche {
+    width: 70px;
+    height: 70px;
+    margin-top: 80px;
+}
+
+
+/* MediaQueries */
+
+@media (max-width: 375px) {
+    header {
+        background-size: 375px;
+        height: 240px;
+    }
+    .nom {
+        width: 150px;
+        margin-top: 50px;
+        margin-left: 112px;
+        text-align: center;
+    }
+    .nom h1 {
+        font-size: 15px;
+    }
+    .nom p {
+        display: none;
+    }
+    .logo_header {
+        width: 60px;
+    }
+    .logoHeader {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 25px;
+    }
 }

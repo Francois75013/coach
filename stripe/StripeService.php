@@ -5,6 +5,8 @@ namespace App\stripe;
 use App\Entity\Coachs;
 use App\Entity\Reservation;
 use App\Entity\Disponibilite;
+use App\ApiKey;
+
 
 use App\Stripe\checkout_session;
 
@@ -26,10 +28,10 @@ Class StripeService{
      */
     public function paymentIntent(Coachs $coachs, Reservation $reservation)
     {
-        Stripe\StripeService::SetApiKey($this->privateKey);
+        StripeService::SetApiKey($this->privateKey);
 
-        return stripe\StripeService\PaymentIntent::create([
-            'amount' => $coachs->getPrix() = 100,
+        return PaymentIntent::create([
+            'amount' => $coach->getPrix() = 100,
             'currency' => Reservation::DEVISE,
             'payment_method_type'=>('card'),
         ]); 
@@ -37,7 +39,7 @@ Class StripeService{
 
     public function payment($amount, $currency,$description,array $stripeParameter)
     {
-        Stripe\StripeService::SetApiKey($this->privateKey);
+        StripeService::SetApiKey($this->privateKey);
         $payment_intent = null;
         if (isset($stripeParameter['stripeIntentId'])){
             $payment_intent = \Stripe\PaymentIntent::retrieve($stripeParameter['stripeIntentId']);

@@ -1,36 +1,39 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Mon coach by Athéon{% endblock %} {% block stylesheets %}
 
-{% block title %}Mon coach by Athéon{% endblock %}
-
-{% block stylesheets %}
 <head>
     <title>Mon Coach by club Athéon</title>
     <link rel="stylesheet" href="/css/general.css">
-  </head>
-{% endblock %}
-{% block body %}
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+{% endblock %} {% block body %}
+
 <body>
-<!-- Display a payment form -->
-<form id="payment-form">
-  <div id="card-element"><!--Stripe.js injects the Card Element--></div>
-  <button id="submit">
+    <!-- Display a payment form -->
+    <form id="payment-form">
+        <?php require 'StripeService.php';?>
+
+        <div id="card-element">
+            <!--Stripe.js injects the Card Element-->
+        </div>
+        <button id="submit">
     <div class="spinner hidden" id="spinner"></div>
     <span id="button-text">Pay now</span>
   </button>
-  <p id="card-error" role="alert"></p>
-  <p class="result-message hidden">
-    Payment succeeded, see the result in your
-    <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
-  </p>
-</form>
+        <p id="card-error" role="alert"></p>
+        <p class="result-message hidden">
+            Payment succeeded, see the result in your
+            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+        </p>
+    </form>
+
+</body>
+{% endblock %} {% block javascripts %}
 <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
 <script src="https://js.stripe.com/v3/"></script>
-</body>
-{% endblock %}
-{% block javascripts %}
 <script type="text/javascript">
-const Stripe = require('stripe');
-const stripe = Stripe('sk_test_51JgqjCD4zek1mP68nVihLZpJgZiwkZF4IeNPCeiBwhZNTim3Xs88fPL39ceTauDQ3WU880MwxAaiIxkTlR0LVVqT00sq75pyeD');
+    const Stripe = require('stripe');
+    const stripe = Stripe('sk_test_51JgqjCD4zek1mP68nVihLZpJgZiwkZF4IeNPCeiBwhZNTim3Xs88fPL39ceTauDQ3WU880MwxAaiIxkTlR0LVVqT00sq75pyeD');
 </script>
 {% endblock %}
-

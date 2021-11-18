@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace App\stripe;
 
@@ -71,3 +71,4 @@ Class StripeService{
     }
 
 }
+ -->
